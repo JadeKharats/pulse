@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        crystal: [1.10.0, 1.11.0, latest]
+        os: [ubuntu-latest]
+        crystal: [1.17.1, latest]
 
     steps:
       - uses: actions/checkout@v3
