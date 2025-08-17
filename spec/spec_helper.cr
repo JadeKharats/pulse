@@ -2,7 +2,7 @@ require "spec"
 require "../src/pulse"
 
 module SpecHelpers
-  def self.with_test_server(handler : HTTP::Handler, &block)
+  def self.with_test_server(handler : HTTP::Handler, &)
     server = HTTP::Server.new([handler]) do |context|
       context.response.status = HTTP::Status::NOT_FOUND
       context.response.print "Not Found"

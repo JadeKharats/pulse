@@ -14,6 +14,24 @@ describe PulseHandlers::VersionHandler do
       version_json["version"].should eq("1.2.3")
     end
   end
+  it "call next if path is wrong" do
+    handler = PulseHandlers::VersionHandler.new("1.2.3")
+
+    SpecHelpers.with_test_server(handler) do |base_url|
+      # Test /version endpoint
+      version_response = SpecHelpers.make_request("#{base_url}/noisrev")
+      version_response.status_code.should eq(404)
+    end
+  end
+  it "call next if method is wrong" do
+    handler = PulseHandlers::VersionHandler.new("1.2.3")
+
+    SpecHelpers.with_test_server(handler) do |base_url|
+      # Test /version endpoint
+      version_response = SpecHelpers.make_request("#{base_url}/version", "POST")
+      version_response.status_code.should eq(404)
+    end
+  end
   it "return setted version with custom path" do
     handler = PulseHandlers::VersionHandler.new("4.2.1", "/custom/version")
 
