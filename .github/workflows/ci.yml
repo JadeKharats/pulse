@@ -30,9 +30,6 @@ jobs:
       - name: Run format check
         run: crystal tool format --check
 
-      - name: Build
-        run: shards build --release --production --no-debug
-
       - name: Run tests
         run: crystal spec --verbose --order=random
 
