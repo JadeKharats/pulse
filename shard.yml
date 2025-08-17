@@ -1,0 +1,9 @@
+name: pulse
+version: 0.1.0
+
+authors:
+  - David D. YOTEAU <david.yoteau-ext@francetravail.fr>
+
+crystal: '>= 1.17.1'
+
+license: MIT
